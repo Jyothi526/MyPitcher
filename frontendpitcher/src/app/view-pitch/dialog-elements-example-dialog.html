@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Copy Your Pitch Link</h1>
+<mat-form-field style="width: 100%;">
+  <div mat-dialog-content>
+    <p matInput id="dialog-elements-example-dialog" [(ngModel)]="data.link" #link>{{data.link}}</p>
+  </div>
+</mat-form-field>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="copyInputMessage()" [cdkCopyToClipboard]="data.link">Copy to clipboard</button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

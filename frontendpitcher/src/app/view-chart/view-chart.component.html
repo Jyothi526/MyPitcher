@@ -1,0 +1,15 @@
+<ng-container [ngSwitch]="inputObj['header']">
+    ​<ngx-charts-bar-vertical-2d *ngSwitchCase="'3 Year Forecast'" (window:resize)="onResize($event)" [view]="view"
+        [scheme]="colorScheme" [results]="graphData" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+        [legendTitle]="'Forecast'" [legendPosition]="'below'" [yAxisLabel]="yAxisLabel">
+    </ngx-charts-bar-vertical-2d>
+
+    <ngx-charts-pie-chart *ngSwitchCase="'Ownership'" (window:resize)="onResize($event)" [view]="view"
+        [scheme]="colorScheme" [results]="graphData" [legend]="showLegend" [legendPosition]="'below'"
+        [gradient]="gradient" [legendTitle]="'Ownership'" [doughnut]="isDoughnut">
+
+    </ngx-charts-pie-chart>
+
+
+</ng-container>

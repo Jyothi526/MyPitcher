@@ -1,0 +1,99 @@
+<div>
+
+  <mat-toolbar
+    style="z-index: 1000;top: 0;position: sticky;color: #45dfe8; width: 100%; background-color: white; border-style: solid; border-color: white; ">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="../assets/Road21Logo Final_Transparent-01.png" style="width: 170px;height: 160px;">
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+
+        <a mat-button routerLink="/userpitchers">Home</a>
+        <a mat-button (click)="logout()">Logout</a>
+
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a mat-list-item routerLink="/userpitchers" routerLinkActive="active">Home</a>
+        <a mat-list-item routerLink="/signin" routerLinkActive="active">Logout</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Current Pitches">
+          <div class="userpitches">
+            <div style="width: 100%; display: flex; flex-direction: row; justify-content: flex-end;">
+              <button matTooltip="Create New Pitch" matTooltipPosition="before" mat-icon-button (click)='newPitch()'
+                style="background-color: #45DFE8; margin:6px; color:white;">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <br>
+            <div class="centered">
+
+              <div *ngIf="pitchers && pitchers.length" class="container">
+
+                <mat-card *ngFor="let i of pitchers" class="pitchCard">
+                  <div style="display: flex; flex-direction: row;">
+                    <img *ngIf="i['company_logo'].length>0" [src]="apiURL+i['company_logo'][0]" height="40px" />
+                    <div class="mat-body-strong" style="margin: 6px;">{{i['documentName']}}</div>
+                  </div>
+
+                  <br>
+                  <div
+                    style="display: flex; flex-direction: row; width: 100%; justify-content: space-between; align-items: center;">
+
+                    <div>
+                      <button matTooltip="Click To Edit Pitch" matTooltipPosition="above" mat-button
+                        style="margin: 6px;" (click)="editPitch(i['_id'])">Edit</button>
+                      <button matTooltip="Click To View Pitch" matTooltipPosition="above" mat-button
+                        style="margin: 6px;" (click)="viewPitch(i['_id'])">View</button>
+                      <button matTooltip="Click To Delete Pitch" matTooltipPosition="above" mat-button
+                        style="margin: 6px;" (click)="deletePitch(i['_id'])">Delete</button>
+
+                    </div>
+
+                    <div>
+                      <button mat-icon-button [matMenuTriggerFor]="menu" style="margin: 6px;color: #45DFE8;">
+                        <mat-icon class="menu_icon">more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+
+
+                        <button mat-menu-item (click)="sharePitch(i['_id'])" matTooltip="click to view Share Pitch"
+                          matTooltipPosition="after">View Shared Pitch <mat-icon>preview</mat-icon></button>
+                        <button mat-menu-item (click)="generatePdf(i['_id'])" matTooltip="click to generate PDF"
+                          matTooltipPosition="after">Generate PDF <mat-icon>cloud_download</mat-icon></button>
+                        <button mat-menu-item (click)="shareLink(i['_id'])" matTooltip="click to view PDF"
+                          matTooltipPosition="after">View PDF <mat-icon>preview</mat-icon></button>
+                        <button mat-menu-item (click)="copyLink(i['_id'])" matTooltip="click to copy Pdf link"
+                          matTooltipPosition="after">Copy Pdf link <mat-icon>file_copy</mat-icon></button>
+                        <button mat-menu-item matTooltip="Click To Send PDF to mail" matTooltipPosition="after"
+                          (click)="sendPdfToMail(i['_id'])">Send PDF to mail <mat-icon>attach_email</mat-icon></button>
+
+
+                      </mat-menu>
+
+                    </div>
+
+                  </div>
+
+
+                </mat-card>
+
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Completed Pitches">To be developed</mat-tab>
+      </mat-tab-group>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

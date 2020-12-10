@@ -1,0 +1,229 @@
+<div>
+    <mat-toolbar
+        style="z-index: 1000;top:0;position:sticky;color: #45dfe8; width: 100%; background-color: white; border-style: solid; border-color: white; ">
+
+        <mat-toolbar-row>
+            <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <img src="../assets/Road21Logo Final_Transparent-01.png" style="width: 170px;height: 160px;">
+            <span class="menu-spacer"></span>
+            <div fxShow="true" fxHide.lt-md>
+
+                <a mat-button routerLink="/userpitchers">Home</a>
+                <a mat-button (click)="logout()">Logout</a>
+
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav>
+            <mat-nav-list>
+                <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+                <a mat-list-item routerLink="/userpitchers">Home</a>
+                <a mat-list-item routerLink="/signin">Logout</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill style="background-color: #e9f5f8;">
+
+
+            <div class="centered">
+                <mat-form-field style="width: 85%;" appearance="outline">
+                    <mat-label>Document Name</mat-label>
+                    <input matInput [(ngModel)]="docName">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-chip-list">
+
+                    <mat-chip-list #chipList aria-label="Tags selection">
+                        <mat-chip style="background-color: #45dfe8;color: aliceblue;" *ngFor="let tag of tags"
+                            [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+                            {{tag}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Add your #tags..." #tagInput [formControl]="tagsControl"
+                            [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                        <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+                            {{tag}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <div class="centered">
+
+
+                <mat-horizontal-stepper #stepper *ngIf="pobj" class="stepper">
+
+                    <mat-step>
+                        <ng-template matStepLabel>Company Basics</ng-template>
+                        <mat-card class="stepperCard">
+                            <div class="containerDiv">
+                                <app-input-field *ngFor="let input of pobj['inputs'].slice(0,5); let i=index;"
+                                    [(inputObj)]="pobj['inputs'][i]" [index]="i+1"></app-input-field>
+                            </div>
+                            <button mat-raised-button matStepperNext (click)="doSave()">Next</button>
+                            <button mat-button (click)="testBtn()">Test</button>
+                            <button mat-button (click)="saveBtn()">Save</button>
+                        </mat-card>
+                    </mat-step>
+
+                    <mat-step>
+                        <ng-template matStepLabel>Company Status</ng-template>
+                        <mat-card class="stepperCard">
+                            <div class="containerDiv">
+                                <app-input-field *ngFor="let input of pobj['inputs'].slice(5,10); let i=index;"
+                                    [(inputObj)]="pobj['inputs'][i+5]" [index]="i+1+5"></app-input-field>
+                            </div>
+                            <button mat-raised-button matStepperNext>Next</button>
+                            <button mat-button (click)="testBtn()">Test</button>
+                            <button mat-button (click)="saveBtn()">Save</button>
+                        </mat-card>
+                    </mat-step>
+
+                    <mat-step>
+                        <ng-template matStepLabel>Other Information</ng-template>
+                        <mat-card class="stepperCard">
+                            <div class="containerDiv">
+                                <app-input-field *ngFor="let input of pobj['inputs'].slice(10,44); let i=index;"
+                                    [(inputObj)]="pobj['inputs'][i+10]" [index]="i+1+10" style="width: 100%;">
+                                </app-input-field>
+                            </div>
+                            <button mat-raised-button matStepperNext>Next</button>
+                            <button mat-button (click)="testBtn()">Test</button>
+                            <button mat-button (click)="saveBtn()">Save</button>
+                        </mat-card>
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>Logo Upload</ng-template>
+                        <mat-card class="stepperCard">
+                            <input type="file" name="image" (change)="selectLogoFiles($event)" /><br>
+                            <br><br>
+                            <button mat-raised-button matStepperNext (click)="doSave()">Next</button>
+                            <button mat-button (click)="testBtn()">Test</button>
+                            <button mat-button (click)="saveBtn()">Save</button>
+                        </mat-card>
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>Team Details</ng-template>
+                        <mat-card class="stepperCard">
+                            <div>Employee Name</div>
+                            <mat-form-field style="width: 85%;" appearance="outline">
+                                <mat-label>Employee Name</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails1']['name']">
+                            </mat-form-field>
+                            <div>Employee Designation</div>
+                            <mat-form-field>
+                                <mat-label>Employee Designation</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails1']['designation']">
+                            </mat-form-field><br>
+                            <div>Employee linkedinUrl</div>
+                            <mat-form-field>
+                                <mat-label>Employee linkedinUrl</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails1']['linkedinUrl']">
+                            </mat-form-field><br><br>
+                            <mat-label>Employee image</mat-label><br>
+                            <input type="file" name="image" (change)="selectTeamImage1($event)" />
+                            <br><br>
+                        </mat-card>
+                        <mat-card class="stepperCard">
+                            <div>Employee Name</div>
+                            <mat-form-field style="width: 85%;" appearance="outline">
+                                <mat-label>Employee Name</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails2']['name']">
+                            </mat-form-field>
+                            <div>Employee Designation</div>
+                            <mat-form-field>
+                                <mat-label>Employee Designation</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails2']['designation']">
+                            </mat-form-field><br>
+                            <div>Employee linkedinUrl</div>
+                            <mat-form-field>
+                                <mat-label>Employee linkedinUrl</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails2']['linkedinUrl']">
+                            </mat-form-field><br><br>
+                            <mat-label>Employee image</mat-label><br>
+                            <input type="file" name="image" (change)="selectTeamImage2($event)" />
+                            <br><br>
+                        </mat-card>
+                        <mat-card class="stepperCard">
+                            <div>Employee Name</div>
+                            <mat-form-field style="width: 85%;" appearance="outline">
+                                <mat-label>Employee Name</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails3']['name']">
+                            </mat-form-field>
+                            <div>Employee Designation</div>
+                            <mat-form-field>
+                                <mat-label>Employee Designation</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails3']['designation']">
+                            </mat-form-field><br>
+                            <div>Employee linkedinUrl</div>
+                            <mat-form-field>
+                                <mat-label>Employee linkedinUrl</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails3']['linkedinUrl']">
+                            </mat-form-field><br><br>
+                            <mat-label>Employee image</mat-label><br>
+                            <input type="file" name="image" (change)="selectTeamImage3($event)" />
+                            <br><br>
+                        </mat-card>
+                        <mat-card class="stepperCard">
+                            <div>Employee Name</div>
+                            <mat-form-field style="width: 85%;" appearance="outline">
+                                <mat-label>Employee Name</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails4']['name']">
+                            </mat-form-field>
+                            <div>Employee Designation</div>
+                            <mat-form-field>
+                                <mat-label>Employee Designation</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails4']['designation']">
+                            </mat-form-field><br>
+                            <div>Employee linkedinUrl</div>
+                            <mat-form-field>
+                                <mat-label>Employee linkedinUrl</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails4']['linkedinUrl']">
+                            </mat-form-field><br><br>
+                            <mat-label>Employee image</mat-label><br>
+                            <input type="file" name="image" (change)="selectTeamImage4($event)" />
+                            <br><br>
+                        </mat-card>
+                        <mat-card class="stepperCard">
+                            <div>Employee Name</div>
+                            <mat-form-field style="width: 85%;" appearance="outline">
+                                <mat-label>Employee Name</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails5']['name']">
+                            </mat-form-field>
+                            <div>Employee Designation</div>
+                            <mat-form-field>
+                                <mat-label>Employee Designation</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails5']['designation']">
+                            </mat-form-field><br>
+                            <div>Employee linkedinUrl</div>
+                            <mat-form-field>
+                                <mat-label>Employee linkedinUrl</mat-label>
+                                <input matInput [(ngModel)]="pobj['teamDetails5']['linkedinUrl']">
+                            </mat-form-field><br><br>
+                            <mat-label>Employee image</mat-label><br>
+                            <input type="file" name="image" (change)="selectTeamImage5($event)" />
+                            <br><br>
+                        </mat-card>
+                        <mat-card style="text-align: center;">
+                            <button mat-button (click)="testBtn()"
+                                style="background-color: #45dfe8;color: antiquewhite;margin-right: 10px;">Test</button>
+                            <button mat-button (click)="saveBtn()"
+                                style="background-color: #45dfe8;color: antiquewhite;">Save</button>
+                        </mat-card>
+
+
+
+                    </mat-step>
+                </mat-horizontal-stepper>
+
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

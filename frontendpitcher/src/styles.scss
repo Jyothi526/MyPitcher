@@ -1,0 +1,141 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@font-face{
+    font-family: "Gotham-Font-Black";
+    src: url("./assets/fonts/Gotham-Font/Gotham-Black.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-BookItalic";
+    src: url("./assets/fonts/Gotham-Font/Gotham-BookItalic.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-Light";
+    src: url("./assets/fonts/Gotham-Font/Gotham-Light.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-Thin";
+    src: url("./assets/fonts/Gotham-Font/Gotham-Thin.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-ThinItalic";
+    src: url("./assets/fonts/Gotham-Font/Gotham-ThinItalic.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-UltraItalic";
+    src: url("./assets/fonts/Gotham-Font/Gotham-UltraItalic.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-XLight";
+    src: url("./assets/fonts/Gotham-Font/Gotham-XLight.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-Bold";
+    src: url("./assets/fonts/Gotham-Font/Gotham-Bold.otf");
+}
+@font-face{
+    font-family: "Gotham-Font-BoldItalic";
+    src: url("./assets/fonts/Gotham-Font/Gotham-BookItalic.otf");
+}
+
+nav{
+    height: 10vh;
+    background: white;
+  }
+  
+  .nav-links{
+    display: flex;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .nav-links li a{
+    color: #1a163d;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  html{
+    height:100%;
+  }
+  
+  body {
+    font-family: url(./assets/fonts/Gotham-Font/Gotham-Light.otf);
+    height: 100%;
+    background-color: #e9f5f8;
+  }
+  
+  a {
+    color: #1a163d;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  
+  
+  
+  
+  /* STRUCTURE */
+  
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+  
+  #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(165, 153, 153, 0.596);
+    opacity: .9;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  app-child .mat-tab-label.mat-tab-label-active {
+    padding: 0px 15px ;
+  justify-content: flex-start;
+  }
+
+  app-child .mat-tab-label{
+    padding: 0px 15px ;
+  justify-content: flex-start;
+  }
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background:#1A163D ;
+  }
+
+.mat-tab-nav-bar{
+    border-radius: 16px;
+  }
+
+  body {
+margin : 0;
+}
+
+

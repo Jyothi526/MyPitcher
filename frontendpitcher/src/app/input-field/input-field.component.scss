@@ -1,0 +1,48 @@
+.textField{
+    margin:16px;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+
+.bigTextField{
+    margin:16px;
+    flex-grow:4;
+    flex-shrink: 1;
+}
+
+.selectField{
+    margin:16px;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+
+.imageField{
+    margin:16px;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+
+.tableField{
+    margin:16px;
+    max-width: 100%;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+.tableContainer{
+    max-width: 100%;
+    overflow: auto;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.numberField{
+    margin:16px;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+
+

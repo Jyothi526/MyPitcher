@@ -1,0 +1,59 @@
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+* {
+    font-family: url("../../assets/fonts/Gotham-Font/Gotham-Black.otf");
+  }
+.centered{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+   
+}
+.userpitches{
+    background-color: #e9f5f8;
+    //height:100vh;
+   overflow-y: hidden;
+
+}
+.add_icon{
+    background-color:#1A163D;
+    color: white;
+    border: 2px solid #1A163D;
+   padding: 20px;
+    border-radius: 50px;
+    margin-left: 400px;
+    margin-top: 30px;
+    box-shadow:0px 0px 10px #45DFE8;
+}
+
+.pitchCard{
+    margin:6px;
+    width:40%;
+    border-style: solid;
+    border-radius: 5px;
+    transition: transform .2s;
+    border-color: white;
+    border-color: #1A163D white white #45DFE8 ;
+    border-width: 3px;
+}
+
+.pitchCard:hover{
+    transform: scale(1.05);
+}
+.menu-spacer {
+    flex: 1 1 auto;
+    color:white;
+}
+

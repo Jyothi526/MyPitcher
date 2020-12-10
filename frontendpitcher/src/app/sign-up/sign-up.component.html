@@ -1,0 +1,37 @@
+<div class="signupSection">
+
+  <form class="signupForm" #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+    <h2>Sign Up</h2>
+    <a [routerLink]="['/signin']">Already User?Login</a>
+    <ul class="noBullet">
+      <li>
+        <label for="username"></label>
+        <input type="text" #name="ngModel" [(ngModel)]="userService.selectedUser.name" name="name" class="inputFields"
+          placeholder="Name" required>
+      </li>
+      <div *ngIf="signUpForm.submitted && !name.valid">
+        <label>This filed is required</label>
+      </div>
+      <li>
+        <label for="email"></label>
+        <input type="text" class="inputFields" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
+          name="email" placeholder="Email" required>
+
+      </li>
+      <div *ngIf="signUpForm.submitted && !email.valid">
+        <label>This field is required</label>
+      </div>
+      <li>
+        <label for="password"></label>
+        <input type="password" class="inputFields" #password="ngModel" [(ngModel)]="userService.selectedUser.password"
+          name="password" placeholder="Password">
+      </li>
+      <li id="center-btn">
+        <input type="submit" id="join-btn" name="signup" value="Register">
+      </li>
+    </ul>
+    <div *ngIf="mailverification">
+      {{mailverification}}
+    </div>
+  </form>
+</div>

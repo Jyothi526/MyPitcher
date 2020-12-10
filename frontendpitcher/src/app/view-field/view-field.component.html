@@ -1,0 +1,123 @@
+<div class="fieldContainer">
+    <div *ngIf="inputObj['inputType']=='text'" class="textField">
+        <div class="textHeader">{{inputObj['header']}}</div>
+        <div class="textContent">{{inputObj['content'][0]}}</div>
+    </div>
+    <div *ngIf="inputObj['inputType']=='big-text'" class="bigTextField">
+        <div class="textHeader">{{inputObj['header']}}</div>
+        <div class="textContent">{{inputObj['content'][0]}}</div>
+    </div>
+
+    <div *ngIf="inputObj['inputType']=='select-single'" class="selectField">
+        <div class="textHeader">{{inputObj['header']}}</div>
+        <div class="textContent">{{inputObj['content'][0]}}</div>
+    </div>
+
+    <div *ngIf="inputObj['inputType']=='select-multiple'" class="selectMultipleField">
+        <div class="textHeader">{{inputObj['header']}}</div>
+        <div class="textContent" *ngFor="let item of inputObj['content']">- {{item}}</div>
+    </div>
+
+    <div *ngIf="inputObj['inputType']=='number'" class="numberField">
+        <div class="textHeader">{{inputObj['header']}}</div>
+        <div class="textContent">{{inputObj['content'][0]}}</div>
+    </div>
+
+    <div *ngIf="inputObj['inputType']=='image'" class="imageField">
+        <div class="mat-body-strong">{{inputObj['header']}}</div>
+        <div>Image input</div>
+    </div>
+
+    <div *ngIf="inputObj['inputType']=='table'" class="tableField">
+        <div class="tableHeader">{{inputObj['header']}}</div>
+
+        <div [ngSwitch]="inputObj['header']">
+            <div *ngSwitchCase="'3 Year Forecast'">
+                <div class="tableContainer">
+                    <table mat-table [dataSource]="inputObj['tableData']" class="mat-elevation-z8" style="width:100%;">
+                        <ng-container *ngFor="let columnName of tableDisplayedColumns; let  colIndex = index"
+                            [matColumnDef]="columnName" [sticky]="colIndex==0">
+                            <th mat-header-cell *matHeaderCellDef>{{columnName}}</th>
+                            <td mat-cell *matCellDef="let element; let rowIndex = index">
+
+
+                                <div *ngIf="rowIndex>0 && colIndex>0">
+
+                                    <div>{{inputObj['tableData'][rowIndex][colIndex]}}</div>
+
+                                </div>
+                                <div style="margin: 6px;" *ngIf="colIndex==0">
+                                    {{inputObj['tableData'][rowIndex][colIndex]}}</div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="tableDisplayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: tableDisplayedColumns;let rowInd=index"
+                            [hidden]="rowInd==0"></tr>
+                    </table>
+                </div>
+            </div>
+            <div *ngSwitchCase="'Ownership'">
+                <div class="tableContainer">
+                    <table mat-table [dataSource]="inputObj['tableData']" class="mat-elevation-z8"
+                        style="width:auto;margin: 6px 6px 6px 6px;">
+                        <ng-container *ngFor="let columnName of tableDisplayedColumns; let  colIndex = index"
+                            [matColumnDef]="columnName">
+                            <th mat-header-cell *matHeaderCellDef style="margin-right: 6px;">{{columnName}}</th>
+                            <td mat-cell *matCellDef="let element; let rowIndex = index">
+                                <div *ngIf="rowIndex>0">
+
+                                    <div *ngIf="colIndex>=1">{{inputObj['tableData'][rowIndex][colIndex]}}</div>
+                                    <div *ngIf="colIndex<1">{{inputObj['tableData'][rowIndex][colIndex]}}</div>
+
+                                </div>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="tableDisplayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: tableDisplayedColumns;let rowInd=index"
+                            [hidden]="rowInd==0 || inputObj['tableData'][rowInd][0]==''"></tr>
+                    </table>
+                </div>
+
+            </div>
+            <div *ngIf="inputObj['header']=='Accomplishments'" class="accomplishments">
+                <div style="display: flex;flex-direction: row;margin: 3%;">
+                    <div class="vertical_timeline">
+                        <b>{{header1}}</b>
+                        <div *ngFor="let row1 of inputObj['tableData'][0]">
+                            <div *ngIf="row1!='Milestone'">{{row1}}</div>
+                        </div>
+                    </div>
+                    <div class="vertical_timeline">
+                        <b>{{header2}}</b>
+                        <div *ngFor="let row2 of inputObj['tableData'][1]">
+                            <div *ngIf="row2!='Timestamp'">{{row2}}</div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+
+
+                <div class="timeline">
+                    <div *ngFor="let row1 of inputObj['tableData'][0]" class="milestone">
+                        {{row1}}
+                    </div>
+                </div>
+
+                <div class="arrow">
+                    <div class="line"></div>
+                    <div class="point"></div>
+                </div>
+
+
+                <div class="timeline">
+                    <div *ngFor="let row2 of inputObj['tableData'][1]" class="timestamp">
+                        {{row2}}
+                    </div>
+                </div>
+
+            </div>
+            <app-view-chart *ngIf="inputObj['header']!='Accomplishments'" [(inputObj)]="inputObj"></app-view-chart>
+            <br>
+        </div>
+
+    </div>

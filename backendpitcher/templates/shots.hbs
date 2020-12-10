@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-80" />
+    <title>{{documentName}}</title>
+    <style>
+        section img {
+            height: 100px;
+            width: 100px;
+            border-radius: 200px;
+            float: left;
+        }
+
+        section .header {
+            padding-left: 130px;
+
+        }
+
+        section .header h1 {
+            font-size: 26px;
+        }
+
+        section {
+            margin-top: 5%;
+            margin-bottom: 1%;
+        }
+
+        .header p {
+            font-size: 15px;
+
+            margin-top: -10px;
+        }
+
+        .header button {
+            border: 2px solid #45DFE8;
+            border-radius: 4px;
+            background: white;
+            font-size: 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: auto auto;
+            margin-right: 5%;
+            margin-left: 5%;
+            justify-content: space-around;
+        }
+
+        section {
+            margin: 5%;
+        }
+
+        .container2 {
+            margin: 50px;
+
+        }
+
+        .container ul p b {
+            color: #45DFE8;
+        }
+
+        .container .hr {
+            color: #1a163d;
+
+        }
+
+        table,
+        ul,
+        tr,
+        td,
+        .container2 {
+            page-break-inside: avoid;
+        }
+
+        .container2 table {
+            border: 1px solid #1a163d;
+
+        }
+
+        body {
+            font-family: url("../../frontendpitcher/src/assets/fonts/Gotham-Font/GothamMedium.ttf");
+        }
+
+        .fund {
+            margin-top: -8px;
+        }
+
+        .fund .fundsSub {
+            display: flex;
+        }
+
+        .team {
+            display: flex;
+            margin-top: -5px;
+            justify-content: space-evenly;
+        }
+
+        .marketCaptalization {
+            display: flex;
+        }
+
+        .marketCaptalization .marketEuro {
+            width: 130px;
+            margin-top: -40px;
+            margin-left: 70px;
+        }
+
+        .one {
+            display: flex;
+        }
+
+        .one .problem {
+            width: 50%;
+        }
+
+        .one .problem h3,
+        p {
+            margin-top: -6px;
+        }
+
+        .one .solution {
+            width: 50%;
+            margin-left: 3%;
+        }
+
+        .one .solution h3,
+        p {
+            margin-top: -6px;
+        }
+
+        .two {
+            display: flex;
+        }
+
+        .two .competitive {
+            width: 50%;
+        }
+
+        .two .competitive h3,
+        p {
+            margin-top: -6px;
+        }
+
+        .two .targetcust {
+            width: 50%;
+            margin-left: 3%;
+        }
+
+        .two .targetcust h3,
+        p {
+            margin-top: -6px;
+        }
+
+        .business {
+            margin-top: -13px;
+        }
+
+        .business h3,
+        p {
+            margin-top: -6px;
+        }
+
+        .market {
+            margin-top: -6px;
+        }
+
+        .market p {
+            margin-top: -6px;
+        }
+
+        .team .teamnum1 {
+            text-align: center;
+        }
+
+        .team .teamnum2 {
+            text-align: center;
+        }
+
+        .team .teamnum3 {
+            text-align: center;
+        }
+
+        .team .teamnum4 {
+            text-align: center;
+        }
+
+        .team .teamnum5 {
+            text-align: center;
+        }
+
+        .arrow {
+            width: 760px;
+        }
+
+        .line {
+            margin-top: 14px;
+            width: 730px;
+            background: black;
+            height: 8px;
+            float: left;
+        }
+
+        .point {
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 30px solid black;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <span><img src="http://localhost:3500/uploads/Logo_Final_Transp_Artboard-1.png"
+            style="margin-top:-20px;float: right;width:100px;height:100px;border-radius:100px;margin-right:10px;"
+            alt="text" /></span>
+    <section>
+        <img src={{#ifImg company_logo}}{{company_logo}}{{/ifImg}}>
+        <div class="header">
+            <h1><b>{{inputs.0.content}}</b></h1>
+            <p><i>{{inputs.1.content}}</i></p>
+            <p>{{~#each tags}}#{{this}} {{/each}}</p><br>
+        </div>
+        <div class="fund">
+            <div class="fundsSub">
+                <h5>{{inputs.32.header}}<h5
+                        style="background-color: gray;margin-left:20px;padding-left:15px;padding-right:15px;">
+                        {{inputs.32.content}} EUR</h5>
+                </h5>
+                <h5 style="margin-left: 100px;">{{inputs.33.header}}:{{inputs.33.content}}</h5>&nbsp;
+            </div>
+            <p style="margin-top: -8px;">We have raised <b>{{inputs.31.content}} EUR</b> since we started operations on
+                {{inputs.2.content}}</p>
+        </div>
+        <div class="one">
+            <div class="problem">
+                <h3>{{inputs.11.header}}</h3>
+                <p>{{inputs.11.content}}</p>
+            </div>
+            <div class="solution">
+                <h3>{{inputs.12.header}}</h3>
+                <p>{{inputs.12.content}}</p>
+            </div>
+        </div>
+        <div class="two">
+            <div class="competitive">
+                <h3>{{inputs.13.header}}</h3>
+                <p>{{inputs.16.content}}</p>
+            </div>
+            <div class="targetcust">
+                <h3>{{inputs.17.header}}</h3>
+                <p>{{inputs.17.content}}</p>
+                <b>We are {{inputs.13.content}}</b>
+            </div>
+        </div>
+        <div class="business">
+            <h3>{{inputs.18.header}}</h3>
+            <p>{{inputs.18.content}}</p>
+        </div>
+        <div class="market">
+            <h3>{{inputs.22.header}}</h3>
+            <p>{{inputs.22.content}}</p>
+        </div>
+        <div class="team">
+            {{#if teamDetails1.imgpath}}
+            <div class="teamnum1">
+                <img src={{#ifTeam1Img teamDetails1.imgpath}}{{teamDetails1.imgpath}}{{/ifTeam1Img}}>
+                <p><b>{{teamDetails1.name}}</b></p>
+                <p><i>{{teamDetails1.designation}}</i></p>
+            </div>
+            {{/if}}
+            {{#if teamDetails2.imgpath}}
+            <div class="teamnum2">
+                <img src={{#ifTeam2Img teamDetails2.imgpath}}{{teamDetails2.imgpath}}{{/ifTeam2Img}}>
+                <p><b>{{teamDetails2.name}}</b></p>
+                <p><i>{{teamDetails2.designation}}</i></p>
+            </div>
+            {{/if}}
+            {{#if teamDetails3.imgpath}}
+            <div class="teamnum3">
+                <img src={{#ifTeam3Img teamDetails3.imgpath}}{{teamDetails3.imgpath}}{{/ifTeam3Img}}>
+                <p><b>{{teamDetails3.name}}</b></p>
+                <p><i>{{teamDetails3.designation}}</i></p>
+            </div>
+            {{/if}}
+            {{#if teamDetails4.imgpath}}
+            <div class="teamnum4">
+                <img src={{#ifTeam4Img teamDetails4.imgpath}}{{teamDetails4.imgpath}}{{/ifTeam4Img}}>
+                <p><b>{{teamDetails4.name}}</b></p>
+                <p><i>{{teamDetails4.designation}}</i></p>
+            </div>
+            {{/if}}
+            {{#if teamDetails5.imgpath}}
+            <div class="teamnum5">
+                <img src={{#ifTeam5Img teamDetails5.imgpath}}{{teamDetails5.imgpath}}{{/ifTeam5Img}}>
+                <p><b>{{teamDetails5.name}}</b></p>
+                <p><i>{{teamDetails5.designation}}</i></p>
+            </div>
+            {{/if}}
+        </div>
+    </section>
+
+    <section>
+        <span><img src="http://localhost:3500/uploads/Logo_Final_Transp_Artboard-1.png"
+                style="float: right;width:100px;height:100px;border-radius:100px;" alt="text" /></span>
+        <div class="container2">
+            <br><br>
+            <p><b>Current {{inputs.14.header}}: {{inputs.14.content}}</b></p>
+            <p><b>Demo:</b></p>
+            {{#each inputs}}
+            {{#ifCond this.inputQuestion "Provide a three-year financial forecast (in euros) containing key metrics and non-financial KPIs"}}
+            <table border="1" style="text-align: center; width:100%;margin-top:-15px; border-collapse:collapse;">
+                {{#each this.tableData}}
+                <tr>
+                    {{#each this}}
+                    {{#ifNull this ''}}
+                    <td>{{this}}</td>
+                    {{/ifNull}}
+                    {{/each}}
+                </tr>
+                {{/each}}
+                <br>
+                {{/ifCond}}
+                {{/each}}
+        </div>
+    </section>
+    <div class="marketCaptalization" style="display: flex;">
+        <div class="captable">
+            {{#each inputs}}
+            {{#ifCond this.inputQuestion "Fill in the CAP table with the shareholders name and their % ownership"}}
+            <table
+                style="text-align: center; width:50%;margin-top:20px;margin-left:100px;float:right;background-color:azure;">
+                <h4 style="margin-left:400px;margin-bottom:-10px;">Captilization Table</h4>
+                {{#each this.tableData}}
+                <tr>
+                    {{#each this}}
+                    {{#ifNull this ""}}
+                    <td>{{this}}</td>
+                    {{/ifNull}}
+                    {{/each}}
+                </tr>
+                {{/each}}
+            </table>
+            <br>
+            {{/ifCond}}
+            {{/each}}
+        </div>
+        <div class="marketEuro" style="width:130px;margin-top:-40px;margin-left:70px;">
+            <p style="background-color: #1a163d;padding:5px;color:white;">TAM:&euro;{{inputs.23.content}} mln</p>
+            <p style="background-color: #45DFE8;padding:5px;">SAM:&euro;{{inputs.24.content}} mln</p>
+            <p style="padding:7px;">SOM:&euro;{{inputs.25.content}} mln</p>
+        </div>
+    </div>
+    <div><br>
+        <p><b>{{inputs.29.header}}:</b> {{inputs.29.content}}</p><br>
+        <p><b>{{inputs.27.inputQuestion}}</b></p>
+        <p>{{inputs.27.content}}</p><br>
+        <p><b>{{inputs.30.header}}</b></p>
+    </div>
+    <br>
+    <div style="margin-top: 10px;text-align:center;">
+        {{#each inputs.30.tableData}}
+        <div style="display: flex;justify-content:space-around;">
+            {{#each this}}
+            <p style="font-size:15px;">{{this}}</p>
+            {{/each}}
+        </div>
+        {{#if @first}}
+        <div class="arrow">
+            <div class="line"></div>
+            <div class="point"></div>
+        </div>
+        <br><br>
+        {{/if}}
+        <br>
+        {{/each}}
+    </div>
+
+
+
+
+    <section style="margin-top: 35px;">
+        <div style="display: flex;justify-content:space-between;">
+            <div>
+                <p><b>Use of Proceeds:</b></p>
+                <ul>
+                    <li>{{inputs.34.content}}</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-left:200px;margin-top:-12px;">Contact Us</h4>
+                <div
+                    style="background-color: #c5c3c3;width:300px;height:fit-content;float:right;text-align:right;padding-top:10px;border:1px solid #c5c3c3;box-shadow:5px 5px #888888;padding-right:4px;">
+                    <p>{{inputs.6.content}}</p>
+                    <p>{{inputs.0.content}}</p>
+                    <p>{{inputs.7.content}}</p>
+                    <p>{{inputs.8.content}}</p>
+                    <p>{{inputs.4.content}}</p>
+                </div>
+            </div>
+        </div>
+        <p>VAT Number: {{inputs.9.content}}</p>
+    </section>
+</body>
+
+</html>

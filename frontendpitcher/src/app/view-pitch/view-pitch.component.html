@@ -1,0 +1,215 @@
+<div>
+    <mat-toolbar
+        style="z-index:1000;top: 0;position:sticky;color: #45dfe8; width: 100%; background-color: white; border-style: solid; border-color: white; ">
+        <mat-toolbar-row>
+            <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <img src="../assets/Road21Logo Final_Transparent-01.png" style="width: 170px;height: 160px;">
+            <span class="menu-spacer"></span>
+            <div fxShow="true" fxHide.lt-md>
+
+                <a mat-button routerLink="/userpitchers">Home</a>
+                <a mat-button (click)="logout()">Logout</a>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav>
+            <mat-nav-list>
+                <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+                <a mat-list-item routerLink="/userpitchers">Home</a>
+                <a mat-list-item routerLink="/signin">Logout</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+
+            <div class="pageContainer" *ngIf="pobj">
+
+                <div class="header">
+                    <div class="infoCol">
+                        <div class="imgContainer">
+                            <img [src]="logo" class="logo" alt="Myimage">
+                        </div>
+                        <div class="subInfoCol">
+                            <div class="companyName">
+                                {{headerElements[[1]].content}}
+                            </div>
+                            <div class="tagline">
+                                {{headerElements[[2]].content}}
+                            </div>
+                            <div class="location">
+                                <div class="iconRow">
+                                    <mat-icon>place</mat-icon>{{headerElements[[4]].content}}
+                                </div>
+                                <div class="iconRow">
+                                    <mat-icon>history</mat-icon> {{headerElements[[3]].header}}
+                                    {{headerElements[[3]].content}}
+                                </div>
+
+                            </div>
+                            <div class="chipContainer">
+                                <mat-chip-list>
+                                    <mat-chip *ngFor="let tag of pobj['tags']" class="chip">
+                                        {{tag}}
+                                    </mat-chip>
+                                </mat-chip-list>
+                            </div>
+
+                            <div *ngFor="let card of companyBasics" class="iconRow">
+                                <div style="display: flex; flex-direction: column;">
+                                    <app-view-field *ngFor="let index of card['fields']"
+                                        [(inputObj)]="pobj['inputs'][index]">
+                                    </app-view-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="numbersCol">
+                        <button mat-button (click)="sharePitch()">
+                            <mat-icon>share</mat-icon>
+                        </button>
+                        <table style="margin: 6px;">
+
+                            <tr class="row">
+                                <td class="first">{{headerElements[[6]].header}}</td>
+                                <td class="second">&euro;{{headerElements[[6]].content}}</td>
+                            </tr>
+                            <tr class="row">
+                                <td class="first">{{headerElements[[5]].header}} </td>
+                                <td class="second">&euro;{{headerElements[[5]].content}} </td>
+                            </tr>
+                            <tr class="row">
+                                <td class="first">{{headerElements[[7]].header}}</td>
+                                <td class="second">{{headerElements[[7]].content}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pitchContent">
+                    <mat-tab-group style="font-family: 'Gotham-Font-Light';" animationDuration="1200ms">
+                        <mat-tab label="Company Info">
+                            <div class="tabContainer">
+                                <mat-card *ngFor="let card of companyInfoCards" class="cardDiv">
+                                    <mat-card-title class="cardHeader">{{card['cardName']}}</mat-card-title>
+                                    <mat-card-content>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <app-view-field *ngFor="let index of card['fields']"
+                                                [(inputObj)]="pobj['inputs'][index]">
+                                            </app-view-field>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Financials">
+                            <div class="tabContainer">
+                                <mat-card *ngFor="let card of financialCards" class="cardDiv">
+                                    <mat-card-title class="cardHeader">{{card['cardName']}}</mat-card-title>
+                                    <mat-card-content style="max-width: 100%;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <app-view-field *ngFor="let index of card['fields']"
+                                                style="max-width: 100%;" [(inputObj)]="pobj['inputs'][index]">
+                                            </app-view-field>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="General">
+                            <div class="tabContainer">
+                                <mat-card *ngFor="let card of generalCards" class="cardDiv">
+                                    <mat-card-title class="cardHeader">{{card['cardName']}}</mat-card-title>
+                                    <mat-card-content>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <app-view-field *ngFor="let index of card['fields']"
+                                                style="max-width: 100%;" [(inputObj)]="pobj['inputs'][index]">
+                                            </app-view-field>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Team">
+                            <div class="teamTabContainer">
+                                <mat-card class="teamCard" *ngIf="pobj['teamDetails1']['name']!=''">
+                                    <img *ngIf="pobj['teamDetails1']['imgpath']" [src]="img1" class="teamImg">
+                                    <div class="teamDetailsContainer">
+                                        <div *ngIf="pobj['teamDetails1']['name']" class="nameDiv">
+                                            {{pobj['teamDetails1']['name']}}</div>
+                                        <div *ngIf="pobj['teamDetails1']['designation']">
+                                            {{pobj['teamDetails1']['designation']}}</div>
+                                        <a *ngIf="pobj['teamDetails1']['linkedinUrl']"
+                                            [href]="pobj['teamDetails1']['linkedinUrl']"><img
+                                                src="../assets/linkedin_logo.png" style="width: 30px;"></a>
+                                    </div>
+                                </mat-card>
+
+                                <mat-card class="teamCard" *ngIf="pobj['teamDetails2']['name']!=''">
+                                    <div class="teamImgContainer">
+                                        <img *ngIf="pobj['teamDetails2']['imgpath']" [src]="img2" class="teamImg">
+                                    </div>
+
+                                    <div class="teamDetailsContainer">
+                                        <div *ngIf="pobj['teamDetails2']['name']" class="nameDiv">
+                                            {{pobj['teamDetails2']['name']}}</div>
+                                        <div *ngIf="pobj['teamDetails2']['designation']">
+                                            {{pobj['teamDetails2']['designation']}}</div>
+                                        <a *ngIf="pobj['teamDetails2']['linkedinUrl']"
+                                            [href]="pobj['teamDetails2']['linkedinUrl']"><img
+                                                src="../assets/linkedin_logo.png" style="width: 30px;"></a>
+                                    </div>
+                                </mat-card>
+
+                                <mat-card class="teamCard" *ngIf="pobj['teamDetails3']['name']!=''">
+                                    <img *ngIf="pobj['teamDetails3']['imgpath']" [src]="img3" class="teamImg">
+                                    <div class="teamDetailsContainer">
+                                        <div *ngIf="pobj['teamDetails3']['name']" class="nameDiv">
+                                            {{pobj['teamDetails3']['name']}}</div>
+                                        <div *ngIf="pobj['teamDetails3']['designation']">
+                                            {{pobj['teamDetails3']['designation']}}</div>
+                                        <a *ngIf="pobj['teamDetails3']['linkedinUrl']"
+                                            [href]="pobj['teamDetails3']['linkedinUrl']"><img
+                                                src="../assets/linkedin_logo.png" style="width: 30px;"></a>
+                                    </div>
+                                </mat-card>
+
+                                <mat-card class="teamCard" *ngIf="pobj['teamDetails4']['name']!=''">
+                                    <img *ngIf="pobj['teamDetails4']['imgpath']" [src]="img4" class="teamImg">
+                                    <div class="teamDetailsContainer">
+                                        <div *ngIf="pobj['teamDetails4']['name']" class="nameDiv">
+                                            {{pobj['teamDetails4']['name']}}</div>
+                                        <div *ngIf="pobj['teamDetails4']['designation']">
+                                            {{pobj['teamDetails4']['designation']}}</div>
+                                        <a *ngIf="pobj['teamDetails4']['linkedinUrl']"
+                                            [href]="pobj['teamDetails4']['linkedinUrl']"><img
+                                                src="../assets/linkedin_logo.png" style="width: 30px;"></a>
+                                    </div>
+                                </mat-card>
+
+                                <mat-card class="teamCard" *ngIf="pobj['teamDetails5']['name']!=''">
+                                    <img *ngIf="pobj['teamDetails5']['imgpath']" [src]="img5" class="teamImg">
+                                    <div class="teamDetailsContainer">
+                                        <div *ngIf="pobj['teamDetails5']['name']" class="nameDiv">
+                                            {{pobj['teamDetails5']['name']}}</div>
+                                        <div *ngIf="pobj['teamDetails5']['designation']">
+                                            {{pobj['teamDetails5']['designation']}}</div>
+                                        <a *ngIf="pobj['teamDetails5']['linkedinUrl']"
+                                            [href]="pobj['teamDetails5']['linkedinUrl']"><img
+                                                src="../assets/linkedin_logo.png" style="width: 30px;"></a>
+                                    </div>
+                                </mat-card>
+
+                            </div>
+                        </mat-tab>
+
+                    </mat-tab-group>
+                </div>
+
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

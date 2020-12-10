@@ -1,0 +1,246 @@
+
+.fieldContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+  
+
+.fieldContainer .textField{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    .textHeader{
+        color: #1a163d; 
+        font-family: "Gotham-Font-Light";
+        margin:6px;
+        text-decoration: underline;
+        text-decoration-color: #45dfe8;
+    }
+
+    .textContent{
+        color: black;
+        font-family: "Gotham-Font-Light";
+    }
+    
+}
+
+.fieldContainer .bigTextField{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: baseline;
+    .textHeader{
+        color: #1a163d;
+        font-family: "Gotham-Font-Light";
+        margin:6px;
+        text-decoration: underline;
+        text-decoration-color: #45dfe8;
+    }
+
+    .textContent{
+        width: fit-content;
+        color: black;
+        margin-left: 6px;
+        margin-bottom: 20px;
+        font-family: "Gotham-Font-Light";
+    }
+}
+
+
+.fieldContainer .selectField{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    .textHeader{
+        color: #1a163d;
+        font-family: "Gotham-Font-Light";
+        margin:6px;
+        text-decoration: underline;
+        text-decoration-color: #45dfe8;
+    }
+
+    .textContent{
+        color: black;
+        font-family: "Gotham-Font-Light";
+    }
+}
+
+.fieldContainer .selectMultipleField{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 10px;
+    .textHeader{
+        color: #1a163d;
+        font-family: "Gotham-Font-Light";
+        margin:6px;
+        text-decoration: underline;
+        text-decoration-color: #45dfe8;
+    }
+
+    .textContent{
+        color: black;
+        font-family: "Gotham-Font-Light";
+    }
+}
+
+
+.fieldContainer .imageField{
+    justify-content: space-around;
+    align-items: center ;
+    border: 2px solid white;
+    box-shadow: 0px 0px 5px  white;
+    &:hover{
+        border: 2px solid #45dfe8;
+        box-shadow: 0px 0px 10px  #45dfe8;
+        }
+}
+
+.fieldContainer .imageField .mat-body-strong{
+    color: #1a163d; 
+    text-decoration: underline; 
+    text-decoration-color: #45dfe8;
+    font-weight: bold;
+}
+
+.fieldContainer .tableField{
+    height:auto;
+    justify-content: space-around;
+    align-items: center ;
+    max-width: 100%;   
+       
+}
+
+.fieldContainer .tableField .tableHeader{
+    color: #1a163d; 
+    text-decoration: underline; 
+    text-decoration-color: #45dfe8;
+    font-weight: bold;
+}
+
+.graphContainer{
+    width: 70%;
+    height: 30%;
+    margin:6px;
+}
+
+.fieldContainer .numberField{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    .textHeader{
+        color: #1a163d;
+        font-family: "Gotham-Font-Light";
+        margin:6px;
+        text-decoration: underline;
+        text-decoration-color: #45dfe8;
+    }
+
+    .textContent{
+        color: black;
+        font-family: "Gotham-Font-Light";
+    }
+}
+.vertical_timeline{
+    display:flex;
+    flex-direction: column;
+margin-right: 3%;
+}
+.timeline{
+    max-width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-right:20px;
+}
+
+.arrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width:100%;
+  }
+  
+  .line {
+    margin-top: 14px;
+    width:95%;
+    background: black;
+    height: 8px;
+    float: left;
+  }
+  
+  .point {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid black;
+    float: right;
+  }
+  .tableField{
+
+    margin:16px;
+    max-width: 100%;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+.tableContainer{
+    max-width:100%;
+    overflow: auto;
+    flex-grow:1;
+    flex-shrink: 1;
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+//   @media only screen and (min-width: 320px) and (max-width: 488px) {
+//     .accomplishments{
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     .timeline{
+//         width:100%;
+//         display: flex;
+//         flex-direction: row;
+//          font-size:10px;
+        
+   
+//     } 
+//     .timeline .milestone{
+//         transform:rotate(90deg);
+        
+//     }
+//     // .timeline .timestamp{
+//     //     transform:rotate(90deg);
+//     // }
+//     .arrow {
+//         width:260px;
+//       }
+      
+//       .line {
+//         margin-top: 14px;
+//         width:230px; 
+//         background: black;
+//         height: 8px;
+//         float: left;
+//       }
+      
+//       .point {
+//         width: 0;
+//         height: 0;
+//         border-top: 20px solid transparent;
+//         border-bottom: 20px solid transparent;
+//         border-left: 30px solid black;
+//         float: right;
+//       }
+    
+//     }

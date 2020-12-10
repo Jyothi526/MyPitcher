@@ -1,0 +1,31 @@
+<div class="signinSection">
+
+  <form class="signinForm" #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+    <h2>Sign In</h2>
+    <a [routerLink]="['/signup']">Create New Account</a>
+    <ul class="noBullet">
+      <li>
+        <label for="email"></label>
+        <input type="text" class="inputFields" name="email" #email="ngModel" [(ngModel)]="model.email"
+          placeholder="Email" required>
+      </li>
+      <li>
+        <label for="password"></label>
+        <input type="password" class="inputFields" name="password" #password="ngModel" [(ngModel)]="model.password"
+          placeholder="Password" required>
+      </li>
+      <li id="center-btn">
+        <input type="submit" id="join-btn" name="signin" value="Login">
+      </li>
+    </ul>
+    <div class="fpass">
+      <a [routerLink]="['/password']">Forget Password?</a><br>
+      <button id="gbtn" (click)="signingoogle()"><img src="assets/google-logo.png"
+          style="width:30px;height:30px;margin-bottom: -10px;">Signin with Google</button><br>
+    </div>
+  </form>
+
+  <div *ngIf="errormessages">
+    {{errormessages}}
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+
+    <ng-template matStepLabel>Personal Information</ng-template>
+    <div *ngFor="let input of pitchObj">
+
+      <div *ngIf="input['InputType']=='text'">
+        <div>{{input.InputQuestion}}{{input.Description}}</div><br>
+        <mat-form-field style="width:100%">
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <div style="float: right;">
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button></div>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <hr>
+    <ng-template matStepLabel> Information</ng-template>
+    <div *ngFor="let input of pitchObj;let index=i">
+
+      <div *ngIf="input['InputType']=='big-text'">
+        <div>{{input.InputQuestion}}{{input.Description}}</div><br>
+        <mat-form-field style="width:100%">
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <div style="float: right;">
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button></div>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <ng-template matStepLabel>Company Information</ng-template>
+    <div *ngFor="let input of pitchObj;let index=i">
+
+      <div *ngIf="input['InputType']=='number'">
+        <div>{{input.InputQuestion}}{{input.Description}}</div><br>
+        <mat-form-field style="width:100%">
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <div style="float: right;">
+      <button mat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button></div>
+  </mat-step>
+</mat-horizontal-stepper>

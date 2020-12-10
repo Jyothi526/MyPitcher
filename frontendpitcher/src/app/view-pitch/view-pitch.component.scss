@@ -1,0 +1,208 @@
+
+.floatingNav{
+    position: fixed;
+    overflow: hidden;
+    z-index: 2400;
+    top: 0px !important;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.imgContainer{
+    img{
+    object-fit: cover;
+    display: block;
+    max-width:150px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+    border-style: solid;
+    border-color: #F5F5F5;
+    }
+}
+
+.pageContainer{
+    background-color:#e9f5f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+.header{
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 78px 10px 0px;  
+    border-top-left-radius:7px; 
+    border-top-right-radius:7px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.035), 0 6px 20px 0 rgba(0,0,0,0.035);
+}
+
+.infoCol{
+    display:flex;
+    flex-direction: row;
+    flex-grow: 3;
+    margin: 15px;
+}
+
+.subInfoCol{
+    display: flex;
+    flex-direction: column;
+    margin:6px;
+    font-family: "Gotham-Font-Light";
+    .companyName{
+    font-size: 26px;
+    font-family: "Gotham-Font-Black";
+    margin: 6px;
+    color: #1a163d;
+    }
+
+    .tagline{
+    font-size: 15px;
+    font-family: "Gotham-Font-Light";
+    margin: 6px;
+    }
+
+    .location{
+        margin: 0px;
+    }
+
+    .chipContainer{
+        margin:6px;
+        .chip{
+            background-color: #1a163d; 
+            color:white;
+            transition : .4s;
+        }
+
+        .chip:hover{
+            background-color: #45dfe8;
+            transform: scale(1.05);
+        }
+    }
+
+}
+
+.iconRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.menu-spacer {
+    flex: 1 1 auto;
+    color:white;
+}
+
+.imgContainer{
+    margin:6px;
+}
+
+.numbersCol{
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: "Gotham-Font-Light";
+    margin:15px;
+}
+.numbersCol .first{
+    text-align: right;
+    font-size: 15px;
+    padding-right: 10px;
+}
+.numbersCol .second{
+    border: 2px solid #45dfe8;
+    background-color: #45dfe8;
+    color: white;
+    padding: 3px 33px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.081), 0 6px 20px 0 rgba(0,0,0,0.081);
+}
+
+
+.pitchContent{
+    background-color: white;
+    margin: 0px 0px;
+    width: 90%;
+    height: 100%;
+    .tabContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #e9f5f8;
+
+    }
+
+    .cardDiv{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-grow: 1;
+        width: 40%;
+        margin:6px;
+        transition: .3s;
+        .cardHeader{
+            font-family: "Gotham-Font-Black";
+            font-size: 20px;
+            margin: 6px;
+            color: #1a163d;
+        }
+
+    }
+
+    .cardDiv:hover{
+        background-color: white;
+        
+    }
+}
+
+.teamTabContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #e9f5f8;
+}
+
+.teamCard{
+    width: 28.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    font-family: "Gotham-Font-Light";
+    .nameDiv{
+       font-family: "Gotham-Font-Black"; 
+    }
+    
+    .teamImg{
+        object-fit: cover;
+        display: block;
+        max-width:100px;
+        width: auto;
+        max-height: 100px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.081), 0 6px 20px 0 rgba(0,0,0,0.081);
+    }
+
+    .teamDetailsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.shareBtn{
+  
+    color: #1a163d;
+}

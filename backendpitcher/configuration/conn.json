@@ -1,0 +1,22 @@
+{
+    "development": {
+        "PORT": 3500,
+        "MONGODB_URI": "mongodb+srv://lemon:PITCHER123@lemon-pitcher.4zfdf.mongodb.net/PITCHER?retryWrites=true&w=majority",
+        "JWT_SECRET": "SECRET@123",
+        "JWT_EXP": "15m",
+        "GOOGLE_CLIENT_ID": "588782528174-92rlf843b4emh3ndjeedmmna17ursk2e.apps.googleusercontent.com",
+        "GOOGLE_CLIENT_SECRET": "8kazp0yCOYBvEctVNFAMAg7N",
+        "FRONTEND_URL": "localhost:4200",
+        "BACKEND_URL": "http://localhost:3500/"
+    },
+    "production": {
+        "PORT": 100,
+        "MONGODB_URI": "mongodb+srv://lemon:PITCHER123@lemon-pitcher.4zfdf.mongodb.net/PITCHER?retryWrites=true&w=majority",
+        "JWT_SECRET": "SECRET@123",
+        "JWT_EXP": "15m",
+        "GOOGLE_CLIENT_ID": "588782528174-92rlf843b4emh3ndjeedmmna17ursk2e.apps.googleusercontent.com",
+        "GOOGLE_CLIENT_SECRET": "8kazp0yCOYBvEctVNFAMAg7N",
+        "FRONTEND_URL": "localhost:4200",
+        "BACKEND_URL": "http://localhost:3500/"
+    }
+}

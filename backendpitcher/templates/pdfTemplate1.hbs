@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin-top: 10%;
+        }
+
+        .logo {
+            height: 100px;
+            width: 100px;
+            border-radius: 200px;
+            float: left;
+        }
+
+        section .header {
+            padding-left: 130px;
+
+        }
+
+        .header h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 26px;
+        }
+
+        .header h4 {
+            font-size: 15px;
+        }
+
+        section .funds {
+            float: right;
+            margin-top: -220px;
+        }
+
+        section table {
+            margin-top: 39px;
+        }
+
+        section .funds .first {
+            text-align: right;
+            font-size: 15px;
+        }
+
+        section .funds .second {
+            border: 2px solid rgb(110, 197, 231);
+            background-color: rgb(110, 197, 231);
+            padding: 3px 33px;
+            text-align: center;
+            border-radius: 15px;
+
+        }
+
+        section .funds button {
+            border: 2px solid black;
+            background-color: black;
+            padding: 3px 33px;
+            text-align: center;
+            border-radius: 15px;
+            color: white;
+            margin-left: 100px;
+            margin-top: -40px;
+        }
+
+        .header button {
+            border: 2px solid rgb(110, 197, 231);
+            border-radius: 4px;
+            background: white;
+            font-size: 10px;
+        }
+
+        section .problem {
+            background-color: (255, 255, 255, 0.1);
+            padding: 5px 30px;
+            height: 200px;
+            width: 400px;
+
+        }
+
+        section .problem img {
+            width: 20px;
+            height: 20px;
+        }
+
+        section .problem hr {
+            width: 70px;
+            margin-left: 60px;
+        }
+
+        section .problem p {
+            font-size: smaller;
+        }
+
+        section .solution {
+            background-color: (255, 255, 255, 0.1);
+            padding: 5px 0px;
+            height: 200px;
+            width: 400px;
+        }
+
+        section .solution img {
+            width: 20px;
+            height: 20px;
+        }
+
+        section .solution hr {
+            width: 70px;
+            margin-left: 60px;
+        }
+
+        section .solution p {
+            font-size: smaller;
+        }
+
+        section .landscape {
+            background-color: (255, 255, 255, 0.1);
+            padding: 5px 30px;
+            height: 200px;
+            width: 400px;
+        }
+
+        section .landscape img {
+            width: 20px;
+            height: 20px;
+        }
+
+        section .landscape hr {
+            width: 70px;
+            margin-left: 60px;
+        }
+
+        section .target {
+            background-color: (255, 255, 255, 0.1);
+            padding: 5px;
+            height: 200px;
+            width: 400px;
+        }
+
+        section .target img {
+            width: 20px;
+            height: 20px;
+        }
+
+        section .target hr {
+            width: 70px;
+            margin-left: 60px;
+        }
+
+        section .target p {
+            font-size: smaller;
+        }
+
+        section .one {
+            display: flex;
+        }
+
+        section .two {
+            display: flex;
+        }
+
+        section .landscape .compeland {
+            display: flex;
+        }
+
+        section .landscape .compeland .ps1 b,
+        ul,
+        li {
+            font-size: small;
+        }
+
+        section .landscape .compeland .ps2 b,
+        ul,
+        li {
+            font-size: small;
+        }
+
+        section .landscape .compeland ul,
+        li {
+            margin-left: -10px;
+        }
+
+        section .landscape .compeland .ps1 {
+            padding-right: 10px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <section>
+        <span><img src="https://logosbynick.com/wp-content/uploads/2017/11/impossible-star-logo-illustrator.jpg"
+                class="logo" alt="Myimage"></span>
+        <div class="header">
+            <h1><b>{{Company_name}}</b></h1>
+            <h4>{{Email}}</h4>
+        </div>
+    </section>
+    <hr><br>
+    <section>
+        <div class="one">
+            <div class="problem">
+                <h3><img
+                        src="https://p7.hiclipart.com/preview/535/598/338/computer-icons-icon-design-error-download-important.jpg">The
+                    problem we encountered</h3>
+                <hr>
+                <p>{{Sections.0.sectionType}}</p>
+            </div>
+            <div class="solution">
+                <h3><img src="https://img.pngio.com/flash-free-interface-icons-flash-icon-png-1200_630.png"> Solution we
+                    provide</h3>
+                <hr>
+                <p>Quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack.
+                    Quick wafting zephyrs vex bold Jim.Quick zephyrs blow, vexing daft Jim.
+                    Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex.
+                    Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax.</p>
+            </div>
+        </div>
+        <div class="two">
+            <div class="landscape">
+                <h3><img
+                        src="https://p7.hiclipart.com/preview/535/598/338/computer-icons-icon-design-error-download-important.jpg">Competetive
+                    Landscape</h3>
+                <hr>
+                <div class="compeland">
+                    <div class="ps1">
+                        <b>Direct competitors:</b>
+                        <ul>
+                            <li>The quick brown fox</li>
+                            <li>Chunk Norris Inc.</li>
+                            <li>Lemon Companies</li>
+                        </ul>
+                    </div>
+                    <div class="ps2">
+                        <b>Indirect competitors:</b>
+                        <ul>
+                            <li>Flick Quarts</li>
+                            <li>Junk MTV</li>
+                            <li>Exact Online</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="target">
+                <h3><img
+                        src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v246-tent-36-business_2.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=dd5f228144a481dd0aec770fa32ae623">Target
+                    Customers</h3>
+                <hr>
+                <p>How quickly daft jumping zebras vex. Two driven jocks help
+                    fax my big quiz. Quick, Baz, get my woven flax.The quick,
+                    brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.
+                    Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.
+                    Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz.
+                    Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack.
+                    Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Fop blopmy junk TV quiz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<div *ngIf="inputObj['inputType']=='text'" class="textField">
+    <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>{{inputObj['header']}}</mat-label>
+        <input matInput maxlength="35" (ngModelChange)="change($event)" [(ngModel)]="inputObj['content'][0]">
+        <mat-hint *ngIf="inputObj['required']">This field is required</mat-hint>
+    </mat-form-field>
+</div>
+<div *ngIf="inputObj['inputType']=='big-text'" class="bigTextField">
+    <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>{{inputObj['header']}}</mat-label>
+        <textarea matInput maxlength="400" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMaxRows="5"
+            (ngModelChange)="change($event)" [(ngModel)]="inputObj['content'][0]" style="width:100%"></textarea>
+        <mat-hint *ngIf="inputObj['required']">This field is required</mat-hint>
+    </mat-form-field>
+</div>
+<div *ngIf="inputObj['inputType']=='select-single'" class="selectField">
+    <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+    <mat-form-field appearance="outline">
+        <mat-label>{{inputObj['header']}}</mat-label>
+        <mat-select (ngModelChange)="change($event)" [(ngModel)]="inputObj['content'][0]">
+            <mat-option *ngFor="let opt of inputObj['options']" [value]='opt'>{{opt}}</mat-option>
+        </mat-select>
+        <mat-hint *ngIf="inputObj['required']">This field is required</mat-hint>
+    </mat-form-field>
+</div>
+<div *ngIf="inputObj['inputType']=='select-multiple'" class="selectField">
+    <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+    <mat-form-field appearance="outline">
+        <mat-label>{{inputObj['header']}}</mat-label>
+        <mat-select (ngModelChange)="change($event)" [(ngModel)]="inputObj['content']" multiple>
+            <mat-option *ngFor="let opt of inputObj['options']" [value]='opt'>{{opt}}</mat-option>
+        </mat-select>
+        <mat-hint *ngIf="inputObj['required']">This field is required</mat-hint>
+    </mat-form-field>
+</div>
+<div *ngIf="inputObj['inputType']=='number'" class="numberField">
+    <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+    <mat-form-field style="width: 80%;" appearance="outline">
+        <mat-label>{{inputObj['header']}}</mat-label>
+        <input matInput minlength="15" (ngModelChange)="change($event)" type="number"
+            [(ngModel)]="inputObj['content'][0]">
+        <mat-hint *ngIf="inputObj['required']">This field is required</mat-hint>
+    </mat-form-field>
+</div>
+<div *ngIf="inputObj['inputType']=='image'" class="imageField">
+    <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+    <div>Image input</div>
+</div>
+<div *ngIf="inputObj['inputType']=='table'" class="tableField">
+    <div [ngSwitch]="inputObj['header']">
+
+        <div>{{index}}. {{inputObj['inputQuestion']}}{{inputObj['Description']}}</div>
+        <br>
+        <div *ngSwitchCase="'3 Year Forecast'">
+            <div class="tableContainer">
+                <table mat-table [dataSource]="inputObj['tableData']" class="mat-elevation-z8" style="width: 100%;">
+                    <ng-container *ngFor="let columnName of tableDisplayedColumns; let  colIndex = index"
+                        [matColumnDef]="columnName" [sticky]="colIndex==0">
+                        <th mat-header-cell *matHeaderCellDef style="margin:6px">{{columnName}}</th>
+                        <td mat-cell *matCellDef="let element; let rowIndex = index">
+                            <div *ngIf="rowIndex>0 && colIndex>0">
+                                <mat-form-field style="width:80%;">
+                                    <input matInput (ngModelChange)="change($event)"
+                                        [(ngModel)]="inputObj['tableData'][rowIndex][colIndex]">
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="colIndex==0" style="margin:6px">
+                                {{inputObj['tableData'][rowIndex][colIndex]}}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tableDisplayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: tableDisplayedColumns;let rowInd = index"
+                        [hidden]="rowInd==0"></tr>
+                </table>
+            </div>
+        </div>
+        <div *ngSwitchCase="'Ownership'">
+            <div class="tableContainer">
+                <table mat-table [dataSource]="inputObj['tableData']" class="mat-elevation-z8"
+                    style="width:auto;margin: 6px 6px 6px 6px;">
+                    <ng-container *ngFor="let columnName of tableDisplayedColumns; let  colIndex = index"
+                        [matColumnDef]="columnName">
+                        <th mat-header-cell *matHeaderCellDef>{{columnName}}</th>
+                        <td mat-cell *matCellDef="let element; let rowIndex = index">
+                            <div *ngIf="rowIndex>0">
+                                <mat-form-field style="width: 50%;">
+                                    <input matInput *ngIf="colIndex>=1" (ngModelChange)="change($event)" type="number"
+                                        [(ngModel)]="inputObj['tableData'][rowIndex][colIndex]">
+                                    <input matInput *ngIf="colIndex<1" (ngModelChange)="change($event)" type="text"
+                                        [(ngModel)]="inputObj['tableData'][rowIndex][colIndex]">
+                                </mat-form-field>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tableDisplayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: tableDisplayedColumns;let rowInd = index"
+                        [hidden]="rowInd==0"></tr>
+                </table>
+            </div>
+
+        </div>
+        <div *ngSwitchCase="'Accomplishments'">
+            <div class="tableContainer">
+                <table mat-table [dataSource]="inputObj['tableData']" class="mat-elevation-z8"
+                    style="margin: 6px 6px 6px 6px;">
+                    <ng-container *ngFor="let columnName of tableDisplayedColumns; let  colIndex = index"
+                        [matColumnDef]="columnName" [sticky]="colIndex==0">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element; let rowIndex = index">
+                            <div *ngIf="rowIndex>=0 && colIndex>0">
+                                <mat-form-field style="width: 50%;">
+                                    <input *ngIf="rowIndex==0" type="text" matInput (ngModelChange)="change($event)"
+                                        [(ngModel)]="inputObj['tableData'][rowIndex][colIndex]">
+                                    <input *ngIf="rowIndex==1" type="number" matInput (ngModelChange)="change($event)"
+                                        [(ngModel)]="inputObj['tableData'][rowIndex][colIndex]">
+                                </mat-form-field>
+                            </div>
+                            <div style="margin-right: 20px;" *ngIf="colIndex==0 && rowIndex>=0">
+                                {{inputObj['tableData'][rowIndex][colIndex]}}</div>
+
+                        </td>
+                    </ng-container>
+
+                    <tr mat-row *matRowDef="let row; columns: tableDisplayedColumns"></tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

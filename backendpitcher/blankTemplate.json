@@ -1,0 +1,578 @@
+{
+    "inputs": [
+        {
+            "inputType": "text",
+            "inputQuestion": "What is the name of your company?",
+            "Description": "(max. 17 characters)",
+            "header": "Company name",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "A tagline says more than a company's name, what's yours?",
+            "Description": "(max. 35 characters)",
+            "header": "Company tagline",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "When was company established?",
+            "header": "Established in",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "select-single",
+            "inputQuestion": "Is your company online yet?",
+            "header": "Is online",
+            "content": [],
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "So, how can people find you?",
+            "header": "Company url",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "select-single",
+            "inputQuestion": "Would you like us to help you with creating a website?",
+            "header": "Website needed",
+            "content": [],
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Who should we contact if we want to reach out to you?",
+            "header": "Contact",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Which mail address is best for contacting the organisation with inquiries?",
+            "header": "Company e-mail",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Where are your headquarters located?",
+            "Description": "(Address,Zip code,CityCountry)",
+            "header": "Location",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Please provide us your VAT number for practical reasons.",
+            "Description": "(BE XXXX.XXX.XXX)",
+            "header": "VAT number",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "A mobile number is not required, but we advise you to share this with us anyway.",
+            "Description": "(We might call you to schedule a meeting...)",
+            "header": "Contact number",
+            "content": [],
+            "required": false
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Describe to us the problem you are trying to solve with.",
+            "Description": "Is this an all time problem or something that arose rather recently? (max. 250 characters)",
+            "header": "Problem statement",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Which solution does provide to overcome this problem?",
+            "Description": "Make sure to highlight your value proposition. (max. 250 characters)",
+            "header": "Solution",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "select-single",
+            "inputQuestion": "We are",
+            "header": "Competitive landscape",
+            "content": [],
+            "options": [
+                "differentiators",
+                "innovators"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "select-single",
+            "inputQuestion": "What is your current productstatus?",
+            "header": "Product status",
+            "content": [],
+            "options": [
+                "Development phase",
+                "Conceptual",
+                "MVP",
+                "Full blown product"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Upload a link to the demo/prototype of the product if possible.",
+            "header": "Product link",
+            "content": []
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Provide us with a complete view of the competitive landscape with direct and indirect competitors, including macro trends.",
+            "Description": "(max. 400 characters)",
+            "header": "Competitive landscape description",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Which customers are you targeting?",
+            "Description": "(max. 390 characters)",
+            "header": "Target",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Your business model = a cash cow?",
+            "Description": "(max. 430 characters)",
+            "header": "Bussiness model",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "select-multiple",
+            "inputQuestion": "Choose a client focus that suits",
+            "header": "Client focus",
+            "content": [],
+            "options": [
+                "B2B",
+                "B2C",
+                "other"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "select-multiple",
+            "inputQuestion": "Operating Industry?",
+            "Description": "choose atleat 1",
+            "header": "Operating industry",
+            "content": [],
+            "options": [
+                "marketing",
+                "fintech",
+                " health",
+                " media",
+                " real estate",
+                " security",
+                " jobs recruitment",
+                "travel",
+                "event tech",
+                "semiconductors",
+                " sports",
+                " music",
+                " entreprise software",
+                " education",
+                "food",
+                " transportation",
+                "energy",
+                " fashion",
+                " gaming",
+                " home living",
+                " legal",
+                "telecom",
+                " kids",
+                "robotics",
+                "wellness beauty",
+                "hosting",
+                "dating"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "select-multiple",
+            "inputQuestion": "What service model are you using for?",
+            "Description": "Choose 1",
+            "header": "Service model",
+            "content": "",
+            "options": [
+                "DaaS",
+                "IaaS",
+                "MaaS",
+                "PaaS",
+                "SaaS"
+            ],
+            "required": true
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "What does the go-to-market plan look like at?",
+            "Description": "(max. 430 characters)",
+            "header": "Go-to-market plan",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "How big is the largest possible market?",
+            "Description": "TAM in million euros",
+            "header": "Possible market",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "What proportion of the market fits you?",
+            "Description": "SAM in million euros",
+            "header": "Market fits",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "What proportion of that market can you reach?",
+            "Description": "SOM in million euros",
+            "header": "Market reach",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "table",
+            "inputQuestion": "Provide a three-year financial forecast (in euros) containing key metrics and non-financial KPIs",
+            "header": "3 Year Forecast",
+            "tableData": [
+                [
+                    "Item",
+                    "Previous Year",
+                    "Current Year",
+                    "Year 1",
+                    "Year 2",
+                    "Year 3"
+                ],
+                [
+                    "Revenue",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "Expenses",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "EBITDA",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "ARR",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "FTEs",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tableHeaders": [
+                "Revenue",
+                "Expenses",
+                "EBITDA",
+                "ARR",
+                "FTEs"
+            ],
+            "tableMaxRows": 6,
+            "tableMaxColumns": 6
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "How do you think you will be able to achieve those forecasts?",
+            "Description": "(max. 500 characters)",
+            "header": "Forecast",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "table",
+            "inputQuestion": "Fill in the CAP table with the shareholders name and their % ownership",
+            "header": "Ownership",
+            "tableData": [
+                [
+                    "ShareHolders",
+                    "% Ownership"
+                ],
+                [
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    ""
+                ]
+            ],
+            "tableHeaders": [
+                "ShareHolders",
+                "%Ownership"
+            ],
+            "tableMaxRows": 6,
+            "tableMaxColumns": 2
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Who has previously invested already?",
+            "Description": "These could be business angels, family members, VC funds...(max. 65 characters)",
+            "header": "Previously invested",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "table",
+            "inputQuestion": "Give a maximum of 7 accomplishments and future evolvements that already went through or those who are in the pipeline; add the date as follows Q1 201N",
+            "header": "Accomplishments",
+            "tableData": [
+                [
+                    "Milestone",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "Timestamp",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tableHeaders": [
+                "",
+                ""
+            ],
+            "tableMaxRows": 2,
+            "tableMaxColumns": 8
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "How much money has been raised since the start of operations on?",
+            "Description": "(in euros)",
+            "header": "Fund raised",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "How much are you looking to raise to help grow?",
+            "Description": "(in euros)",
+            "header": "Funding need",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "How long is the runway period for this investment?",
+            "Description": "in months",
+            "header": "Runway",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "What is objective with the funding?",
+            "header": "Funding objective",
+            "content": [],
+            "required": true
+        },
+        {
+            "inputType": "select-multiple",
+            "inputQuestion": "Where did you first hear about this intake form?",
+            "header": "Found us at",
+            "content": [],
+            "options": [
+                "Friends",
+                "Colleagues",
+                "Facebook",
+                "LinkedIn",
+                "Competitors",
+                "VC Fund",
+                "Website"
+            ]
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "What's the ONE thing our questionnaire is missing?",
+            "header": "Complaints",
+            "content": []
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "How would you rate our tool?",
+            "header": "Rate us",
+            "content": []
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Do you have any suggestions for us to further improve our service?",
+            "header": "Suggestions to improve",
+            "content": []
+        },
+        {
+            "inputType": "select-single",
+            "inputQuestion": "Would you advise others to use our tool?This question is required.",
+            "header": "Suggest others",
+            "content": [],
+            "options": [
+                "Yes",
+                "No"
+            ]
+        },
+        {
+            "inputType": "text",
+            "inputQuestion": "Would you be willing to pay for a watermark-free copy of your 2-pager?",
+            "header": "Will you pay for pitch ?",
+            "content": [],
+            "options": [
+                "Yes",
+                "No"
+            ]
+        },
+        {
+            "inputType": "number",
+            "inputQuestion": "How much would this be worth to you?",
+            "header": "Is pitch worth",
+            "content": []
+        },
+        {
+            "inputType": "big-text",
+            "inputQuestion": "Please motivate your decision so that we can learn from it and hopefully improve to provide you a better experience next time.",
+            "header": "Suggestions",
+            "content": []
+        }
+    ],
+    "tags": [],
+    "tagsOptions": [
+        "business",
+        "entrepreneur",
+        "success",
+        "motivation",
+        "marketing",
+        "money",
+        "entrepreneurship",
+        "inspiration",
+        "mindset",
+        "lifestyle",
+        "businessowner",
+        "smallbusiness",
+        "startup",
+        "digitalmarketing",
+        "work",
+        "design",
+        "branding",
+        "investment",
+        "realestate",
+        "hustle",
+        "bhfyp",
+        "finance",
+        "fashion",
+        "socialmedia",
+        "leadership",
+        "entrepreneurlife",
+        "technology",
+        "businessman",
+        "fitness",
+        "wealth",
+        "bitcoin",
+        "socialmediamarketing",
+        "investing",
+        "inspire",
+        "happiness",
+        "art",
+        "forex",
+        "travel",
+        "invest"
+    ],
+    "teamDetails1": {
+        "imgpath": "",
+        "name": "",
+        "designation": "",
+        "linkedinUrl": ""
+    },
+    "teamDetails2": {
+        "imgpath": "",
+        "name": "",
+        "designation": "",
+        "linkedinUrl": ""
+    },
+    "teamDetails3": {
+        "imgpath": "",
+        "name": "",
+        "designation": "",
+        "linkedinUrl": ""
+    },
+    "teamDetails4": {
+        "imgpath": "",
+        "name": "",
+        "designation": "",
+        "linkedinUrl": ""
+    },
+    "teamDetails5": {
+        "imgpath": "",
+        "name": "",
+        "designation": "",
+        "linkedinUrl": ""
+    }
+}
